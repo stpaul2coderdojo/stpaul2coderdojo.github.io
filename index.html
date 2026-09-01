@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CoderDojo — coding, AI, robotics, deep learning and creative technology.">
+  <title>CoderDojo | stpaul2coderdojo</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#">CoderDojo</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#stories">Stories</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">CODING • AI • ROBOTICS • LEARNING</p>
+    <h1>Build. Explore.<br><span>Imagine what's next.</span></h1>
+    <p class="lead">A modern home for the CoderDojo Rondo archive and new experiments in artificial intelligence, deep learning, IoT, programming and creative technology.</p>
+    <div class="actions">
+      <a class="button primary" href="#projects">Explore projects</a>
+      <a class="button ghost" href="https://coderdojorondo.wordpress.com/" target="_blank" rel="noopener">Original WordPress site ↗</a>
+    </div>
+  </div>
+  <div class="orb" aria-hidden="true"><div class="orb-inner">CODE<br><b>DOJO</b></div></div>
+</section>
+
+<section id="about" class="section">
+  <div class="section-label">01 / ABOUT</div>
+  <div class="two-col">
+    <div>
+      <h2>A dojo for technology experiments.</h2>
+    </div>
+    <div>
+      <p>CoderDojo Rondo brings together programming, education, machine learning, embedded systems and speculative technology. This GitHub Pages edition reorganizes the original blog into a lightweight, fast static site.</p>
+      <p class="muted">The archive includes work around AWS, Jetson Nano, Python, TensorFlow/Keras, IoT, climate technology and science-fiction-inspired technical storytelling.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section alt">
+  <div class="section-label">02 / PROJECTS</div>
+  <div class="cards">
+    <article class="card featured">
+      <span class="tag">AI / EDGE</span>
+      <h3>The Observer</h3>
+      <p>An AWS DeepLens and far-field integration concept using visual and audio event streams. Four daemon concepts — Compassion, Humility, Gratitude and Optimism — feed a hint-generation layer.</p>
+      <div class="code-pill">Python + AWS + event streams</div>
+    </article>
+    <article class="card">
+      <span class="tag">CLIMATE / IoT</span>
+      <h3>Nathan's Greenhouse</h3>
+      <p>A speculative IoT system exploring biomass measurements, environmental sensors, code-at-the-edge and possible carbon-accounting models.</p>
+      <div class="code-pill">IoT + sensors + edge code</div>
+    </article>
+    <article class="card">
+      <span class="tag">BIO / COMPUTING</span>
+      <h3>Machine Genomes</h3>
+      <p>A science-fiction exploration of random DNA, machine transcription and the boundary between biological and computational information.</p>
+      <div class="code-pill">Bioinformatics + imagination</div>
+    </article>
+  </div>
+</section>
+
+<section id="tutorials" class="section">
+  <div class="section-label">03 / TUTORIALS</div>
+  <div class="timeline">
+    <article class="post">
+      <div class="date">MAY 18, 2024</div>
+      <div>
+        <h3>Using Image Datasets for Deep Learning with Jetson Nano Simulator</h3>
+        <p>A practical path from dataset selection and preprocessing through TensorFlow/Keras training, evaluation and deployment optimization.</p>
+        <a href="https://coderdojorondo.wordpress.com/" target="_blank" rel="noopener">Read in archive ↗</a>
+      </div>
+    </article>
+    <article class="post">
+      <div class="date">MAY 18, 2024</div>
+      <div>
+        <h3>Getting Started with NVIDIA Deep Learning on Jetson Nano</h3>
+        <p>Introduces Jetson Nano, JetPack, CUDA/cuDNN and Python workflows, including experimentation with the jetson-stats library.</p>
+        <a href="https://coderdojorondo.wordpress.com/" target="_blank" rel="noopener">Read in archive ↗</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="stories" class="section dark">
+  <div class="section-label">04 / STORIES</div>
+  <div class="story">
+    <div>
+      <p class="eyebrow">CLIMATE × SCIENCE FICTION</p>
+      <h2>Climate Ava, and Nathan</h2>
+      <p>A speculative story mixing programming, robotics, greenhouse IoT, carbon accounting and a mysterious wilderness — a reminder that technology can be a laboratory for ideas as well as a tool.</p>
+    </div>
+    <div class="quote">“Maybe you can author a plant loop… a loop in code to communicate to the plant?”</div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div>
+    <div class="section-label">05 / CONNECT</div>
+    <h2>Keep building.</h2>
+    <p>Use this repository as the new static home for CoderDojo Rondo. Add projects, tutorials, experiments and links as the archive evolves.</p>
+  </div>
+  <div class="contact-card">
+    <div><span>GitHub</span><a href="https://github.com/stpaul2coderdojo/stpaul2coderdojo.github.io">stpaul2coderdojo.github.io ↗</a></div>
+    <div><span>Archive</span><a href="https://coderdojorondo.wordpress.com/" target="_blank" rel="noopener">coderdojorondo.wordpress.com ↗</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>© CoderDojo Rondo</span>
+  <span>Static site • GitHub Pages</span>
+</footer>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const el = document.querySelector(a.getAttribute('href'));
+  if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+}));
+</script>
+</body>
+</html>
