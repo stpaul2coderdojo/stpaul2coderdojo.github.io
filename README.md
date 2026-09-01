@@ -1,2 +1,2 @@
-# stpaul2coderdojo.githubio.com
+# stpaul2coderdojo.github.io
 The coderdojostpaul2 website
