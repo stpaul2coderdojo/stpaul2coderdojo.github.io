@@ -1,74 +1,270 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="CoderDojo — coding, AI, robotics, deep learning and creative technology.">
-  <title>CoderDojo | stpaul2coderdojo</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<header class="site-header">
-  <nav class="nav">
-    <a class="brand" href="#">CoderDojo</a>
-    <div class="navlinks">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#tutorials">Tutorials</a>
-      <a href="#stories">Stories</a>
-      <a href="#contact">Contact</a>
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260901-03-13e0786","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/50d846425a1e5082.telemetry_sdk.js" integrity="sha512-Otbex+ztlVbcEGql0rXGd/3E3ee/hqAntg6DeuUEMG6pIPbXGOSvZbFZVzknAXi1tH/itQ+ijEhOTr2aWj6CXg=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St Pauls CoderDojo</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #091a33;
+      --panel: #10294b;
+      --cyan: #55e6df;
+      --yellow: #ffcf55;
+      --mist: #dce9f3;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background-color: #091a33;
+    }
+    .app-shell {
+      width: 100%;
+      overflow: hidden;
+      background-image:
+        linear-gradient(rgba(85,230,223,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(85,230,223,.055) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .mono { font-family: "Space Mono", monospace; }
+    .nav-link {
+      position: relative;
+      color: #dce9f3;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: #55e6df; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      height: 2px;
+      transform: scaleX(0);
+      background: #55e6df;
+      transition: transform .2s ease;
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .hero-orbit {
+      position: absolute;
+      width: 30rem; height: 30rem;
+      border: 1px solid rgba(85,230,223,.25);
+      border-radius: 999px;
+      right: -9rem; top: -10rem;
+      pointer-events: none;
+    }
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      width: 1rem; height: 1rem;
+      background: var(--yellow);
+      border-radius: 999px;
+      bottom: 2rem; left: 2rem;
+      box-shadow: 0 0 0 9px rgba(255,207,85,.13);
+    }
+    .code-line {
+      height: 7px;
+      border-radius: 99px;
+      background: #55e6df;
+      opacity: .9;
+    }
+    .reveal {
+      animation: rise .7s both;
+    }
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .2s; }
+    .delay-3 { animation-delay: .3s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .topic-card {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .topic-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 0 rgba(9,26,51,.16);
+    }
+    .focus-ring:focus-visible {
+      outline: 3px solid #ffcf55;
+      outline-offset: 3px;
+    }
+    #mobile-menu { display: none; }
+    #mobile-menu.is-open { display: flex; }
+    @media (max-width: 767px) {
+      .desktop-nav { display: none; }
+      .desktop-join { display: none; }
+      #mobile-menu { flex-direction: column; }
+    }
+  </style>
+  <script src="/_sdk/b3bf9e8ac58e6ad6.data_sdk.js" type="text/javascript" integrity="sha512-otc1u9NYq9Ms5Jt//7vmhrrqR5CLPr8Jdgs6741gqniClfLMcfmC+jK/cKuQdhLv6G0esJ/FzaMS9tv0T/vj/Q=="></script>
+  <script src="/_sdk/2cfae6c35b9820dc.resizing_sdk.js" type="text/javascript" integrity="sha512-Oy+wKa9tloayelgS18tBfR707QfWMdeA8unVpm1M0/W/edVyjcRCNO6/jCvDwt/HpUta1v7sfMHiF1mAVr5RIA=="></script>
+ </head>
+ <body data-template-id="__page-root">
+  <div class="app-shell min-h-screen">
+   <header class="w-full border-b border-cyan-200/15 bg-[#091a33]/95 sticky top-0 z-30 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"><a href="#top" class="flex items-center gap-3 focus-ring rounded-lg"> <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#55e6df] text-[#091a33]"> <i data-lucide="code-2" width="24" height="24" aria-hidden="true"></i> </span> <span class="leading-tight"> <span data-template-id="site-name" class="canva-text block font-bold tracking-tight"></span> <span data-template-id="site-kicker" class="canva-text mono block text-[10px] uppercase tracking-[.17em]"></span> </span> </a>
+     <nav class="desktop-nav flex items-center gap-7" aria-label="Primary navigation"><a data-template-id="nav-about" class="canva-link nav-link focus-ring" href="#about"></a> <a data-template-id="nav-sessions" class="canva-link nav-link focus-ring" href="#sessions"></a> <a data-template-id="nav-join" class="canva-link nav-link focus-ring" href="#join"></a>
+     </nav><a data-template-id="header-join-button" class="canva-button desktop-join focus-ring rounded-full px-5 py-2.5 text-sm font-bold transition hover:-translate-y-0.5" href="#join"></a> <button id="menu-toggle" type="button" class="focus-ring rounded-lg p-2 text-[#55e6df] md:hidden" aria-expanded="false" aria-controls="mobile-menu"> <span class="sr-only">Open navigation menu</span> <i data-lucide="menu" width="27" height="27" aria-hidden="true"></i> </button>
     </div>
-  </nav>
-</header>
-
-<main>
-<section class="hero">
-  <div class="hero-copy">
-    <p class="eyebrow">CODING • AI • ROBOTICS • LEARNING</p>
-    <h1>Build. Explore.<br><span>Imagine what's next.</span></h1>
-    <p class="lead">A modern home for the CoderDojo Rondo archive and new experiments in artificial intelligence, deep learning, IoT, programming and creative technology.</p>
-    <div class="actions">
-      <a class="button primary" href="#projects">Explore projects</a>
-      <a class="button ghost" href="https://coderdojorondo.wordpress.com/" target="_blank" rel="noopener">Original WordPress site ↗</a>
+    <nav id="mobile-menu" class="w-full gap-4 border-t border-cyan-200/15 px-5 py-5 md:hidden" aria-label="Mobile navigation"><a data-template-id="mobile-nav-about" class="canva-link focus-ring rounded px-1 font-semibold" href="#about"></a> <a data-template-id="mobile-nav-sessions" class="canva-link focus-ring rounded px-1 font-semibold" href="#sessions"></a> <a data-template-id="mobile-nav-join" class="canva-link focus-ring rounded px-1 font-semibold" href="#join"></a>
+    </nav>
+   </header>
+   <main id="top">
+    <section class="relative w-full overflow-hidden bg-[#091a33]">
+     <div class="hero-orbit"></div>
+     <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:py-24 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+      <div>
+       <p data-template-id="hero-eyebrow" class="canva-text mono reveal rounded-full border border-[#55e6df]/40 px-3 py-1.5 text-xs font-bold uppercase tracking-[.13em] inline-block"></p>
+       <h1 data-template-id="hero-title" class="canva-text reveal delay-1 mt-6 max-w-3xl font-bold leading-[.98] tracking-[-.055em]"></h1>
+       <p data-template-id="hero-description" class="canva-text reveal delay-2 mt-6 max-w-xl text-lg leading-relaxed"></p>
+       <div class="reveal delay-3 mt-8 flex flex-wrap gap-3"><a data-template-id="hero-primary-button" class="canva-button focus-ring inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold transition hover:-translate-y-0.5" href="#join"> <span></span><i data-lucide="arrow-down-right" width="18" height="18" aria-hidden="true"></i> </a> <a data-template-id="hero-secondary-button" class="canva-button focus-ring inline-flex items-center gap-2 rounded-full border px-6 py-3.5 font-bold transition hover:bg-white/10" href="#sessions"> <span></span><i data-lucide="sparkles" width="18" height="18" aria-hidden="true"></i> </a>
+       </div>
+       <div class="mt-11 flex items-center gap-4">
+        <div class="flex -space-x-2"><span class="h-9 w-9 rounded-full border-2 border-[#091a33] bg-[#ffcf55]"></span> <span class="h-9 w-9 rounded-full border-2 border-[#091a33] bg-[#55e6df]"></span> <span class="h-9 w-9 rounded-full border-2 border-[#091a33] bg-[#ee8564]"></span>
+        </div>
+        <p data-template-id="hero-note" class="canva-text text-sm font-medium"></p>
+       </div>
+      </div>
+      <div class="relative mx-auto w-full max-w-lg reveal delay-2">
+       <div class="absolute -left-5 -top-5 h-28 w-28 rounded-3xl border border-[#55e6df]/35"></div>
+       <div class="relative overflow-hidden rounded-[2rem] border border-[#55e6df]/35 bg-[#10294b] p-3 shadow-2xl shadow-black/30"><img data-template-id="hero-image" class="canva-image h-[385px] w-full rounded-[1.35rem] object-cover" loading="lazy">
+        <div class="absolute bottom-7 left-7 right-7 rounded-2xl border border-white/20 bg-[#091a33]/90 p-4 backdrop-blur">
+         <div class="flex items-center gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-lg bg-[#ffcf55] text-[#091a33]"><i data-lucide="terminal" width="18" height="18" aria-hidden="true"></i></span>
+          <div>
+           <p data-template-id="hero-code-label" class="canva-text mono text-xs font-bold uppercase tracking-wider"></p>
+           <p data-template-id="hero-code-copy" class="canva-text mt-0.5 text-sm"></p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="absolute -bottom-5 -right-3 rounded-2xl bg-[#ffcf55] p-4 text-[#091a33] shadow-lg"><i data-lucide="lightbulb" width="27" height="27" aria-hidden="true"></i>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section id="about" class="w-full bg-[#dce9f3] py-16 md:py-24">
+     <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
+       <div>
+        <p data-template-id="about-eyebrow" class="canva-text mono text-xs font-bold uppercase tracking-[.16em]"></p>
+        <h2 data-template-id="about-title" class="canva-text mt-4 font-bold leading-tight tracking-[-.045em]"></h2>
+        <p data-template-id="about-description" class="canva-text mt-5 max-w-md leading-relaxed"></p>
+        <div class="mt-8 flex items-center gap-3"><span class="h-3 w-3 rounded-full bg-[#55e6df]"></span> <span class="h-3 w-3 rounded-full bg-[#ffcf55]"></span> <span class="h-3 w-3 rounded-full bg-[#ee8564]"></span> <span class="mono ml-1 text-xs font-bold text-[#48617b]">CREATE / SHARE / GROW</span>
+        </div>
+       </div>
+       <div class="grid gap-4 sm:grid-cols-3">
+        <article data-template-id="value-card-1" class="canva-card rounded-3xl p-6 shadow-sm"><i data-lucide="gamepad-2" class="mb-8 text-[#091a33]" width="28" height="28" aria-hidden="true"></i>
+         <h3 data-template-id="value-title-1" class="canva-text font-bold"></h3>
+         <p data-template-id="value-copy-1" class="canva-text mt-3 text-sm leading-relaxed"></p>
+        </article>
+        <article data-template-id="value-card-2" class="canva-card rounded-3xl p-6 shadow-sm"><i data-lucide="users" class="mb-8 text-[#091a33]" width="28" height="28" aria-hidden="true"></i>
+         <h3 data-template-id="value-title-2" class="canva-text font-bold"></h3>
+         <p data-template-id="value-copy-2" class="canva-text mt-3 text-sm leading-relaxed"></p>
+        </article>
+        <article data-template-id="value-card-3" class="canva-card rounded-3xl p-6 shadow-sm"><i data-lucide="rocket" class="mb-8 text-[#091a33]" width="28" height="28" aria-hidden="true"></i>
+         <h3 data-template-id="value-title-3" class="canva-text font-bold"></h3>
+         <p data-template-id="value-copy-3" class="canva-text mt-3 text-sm leading-relaxed"></p>
+        </article>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section id="sessions" class="w-full bg-[#f8f6ee] py-16 md:py-24">
+     <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+       <div>
+        <p data-template-id="sessions-eyebrow" class="canva-text mono text-xs font-bold uppercase tracking-[.16em]"></p>
+        <h2 data-template-id="sessions-title" class="canva-text mt-4 font-bold tracking-[-.045em]"></h2>
+       </div>
+       <p data-template-id="sessions-description" class="canva-text max-w-md leading-relaxed"></p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+       <article data-template-id="topic-card-1" class="canva-card topic-card overflow-hidden rounded-[1.7rem]"><img data-template-id="scratch-image" class="canva-image h-48 w-full object-cover" loading="lazy">
+        <div class="p-6"><span data-template-id="topic-label-1" class="canva-tag mono rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"></span>
+         <h3 data-template-id="topic-title-1" class="canva-text mt-4 font-bold"></h3>
+         <p data-template-id="topic-copy-1" class="canva-text mt-3 leading-relaxed"></p>
+        </div>
+       </article>
+       <article data-template-id="topic-card-2" class="canva-card topic-card overflow-hidden rounded-[1.7rem]"><img data-template-id="web-dev-image" class="canva-image h-48 w-full object-cover" loading="lazy">
+        <div class="p-6"><span data-template-id="topic-label-2" class="canva-tag mono rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"></span>
+         <h3 data-template-id="topic-title-2" class="canva-text mt-4 font-bold"></h3>
+         <p data-template-id="topic-copy-2" class="canva-text mt-3 leading-relaxed"></p>
+        </div>
+       </article>
+       <article data-template-id="topic-card-3" class="canva-card topic-card overflow-hidden rounded-[1.7rem]"><img data-template-id="robotics-image" class="canva-image h-48 w-full object-cover" loading="lazy">
+        <div class="p-6"><span data-template-id="topic-label-3" class="canva-tag mono rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"></span>
+         <h3 data-template-id="topic-title-3" class="canva-text mt-4 font-bold"></h3>
+         <p data-template-id="topic-copy-3" class="canva-text mt-3 leading-relaxed"></p>
+        </div>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section class="w-full bg-[#10294b] py-16 md:py-24">
+     <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+       <div>
+        <p data-template-id="first-visit-eyebrow" class="canva-text mono text-xs font-bold uppercase tracking-[.16em]"></p>
+        <h2 data-template-id="first-visit-title" class="canva-text mt-4 font-bold leading-tight tracking-[-.045em]"></h2>
+        <p data-template-id="first-visit-copy" class="canva-text mt-5 max-w-md leading-relaxed"></p>
+       </div>
+       <ol class="grid gap-4 md:grid-cols-3">
+        <li class="rounded-2xl border border-[#55e6df]/25 p-5"><span class="mono text-3xl font-bold text-[#55e6df]">01</span> <h3 data-template-id="step-title-1" class="canva-text mt-6 font-bold"></h3><p data-template-id="step-copy-1" class="canva-text mt-2 text-sm leading-relaxed"></p></li>
+        <li class="rounded-2xl border border-[#55e6df]/25 p-5"><span class="mono text-3xl font-bold text-[#ffcf55]">02</span> <h3 data-template-id="step-title-2" class="canva-text mt-6 font-bold"></h3><p data-template-id="step-copy-2" class="canva-text mt-2 text-sm leading-relaxed"></p></li>
+        <li class="rounded-2xl border border-[#55e6df]/25 p-5"><span class="mono text-3xl font-bold text-[#ee8564]">03</span> <h3 data-template-id="step-title-3" class="canva-text mt-6 font-bold"></h3><p data-template-id="step-copy-3" class="canva-text mt-2 text-sm leading-relaxed"></p></li>
+       </ol>
+      </div>
+     </div>
+    </section>
+    <section id="join" class="w-full bg-[#ffcf55] py-16 md:py-24">
+     <div class="mx-auto max-w-5xl px-5 text-center lg:px-8">
+      <p data-template-id="join-eyebrow" class="canva-text mono text-xs font-bold uppercase tracking-[.16em]"></p>
+      <h2 data-template-id="join-title" class="canva-text mx-auto mt-4 max-w-3xl font-bold leading-tight tracking-[-.05em]"></h2>
+      <p data-template-id="join-copy" class="canva-text mx-auto mt-5 max-w-2xl text-lg leading-relaxed"></p><a data-template-id="join-button" class="canva-button focus-ring mt-8 inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold transition hover:-translate-y-0.5" href="#contact"> <span></span><i data-lucide="send" width="18" height="18" aria-hidden="true"></i> </a>
+     </div>
+    </section>
+   </main>
+   <footer id="contact" data-template-id="footer-section" class="canva-footer w-full">
+    <div class="mx-auto grid max-w-7xl gap-9 px-5 py-12 md:grid-cols-[1fr_auto] md:items-end lg:px-8">
+     <div>
+      <div class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#55e6df] text-[#091a33]"> <i data-lucide="braces" width="23" height="23" aria-hidden="true"></i> </span>
+       <p data-template-id="footer-title" class="canva-text font-bold"></p>
+      </div>
+      <p data-template-id="footer-copy" class="canva-text mt-5 max-w-lg leading-relaxed"></p>
+      <p data-template-id="footer-note" class="canva-text mono mt-5 text-xs uppercase tracking-wider"></p>
+     </div><a data-template-id="contact-button" class="canva-button focus-ring inline-flex w-fit items-center gap-2 rounded-full px-6 py-3.5 font-bold transition hover:-translate-y-0.5" href="https://coderdojorondo.wordpress.com" target="_blank" rel="noopener noreferrer"> <span></span><i data-lucide="external-link" width="17" height="17" aria-hidden="true"></i> </a>
     </div>
+   </footer>
   </div>
-  <div class="orb" aria-hidden="true"><div class="orb-inner">CODE<br><b>DOJO</b></div></div>
-</section>
+  <script src="/_sdk/0aac212797dcb9a6.editing_sdk.js" integrity="sha512-U1Z5TGB/MTX0fFSADhP7rVM3+UzJJjKTapiY1vm1cxcbcyWo4eBuCJNJO6zARJ5kHopP9UvWNtPszOqzRc1ICA=="></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
 
-<section id="about" class="section">
-  <div class="section-label">01 / ABOUT</div>
-  <div class="two-col">
-    <div>
-      <h2>A dojo for technology experiments.</h2>
-    </div>
-    <div>
-      <p>CoderDojo Rondo brings together programming, education, machine learning, embedded systems and speculative technology. This GitHub Pages edition reorganizes the original blog into a lightweight, fast static site.</p>
-      <p class="muted">The archive includes work around AWS, Jetson Nano, Python, TensorFlow/Keras, IoT, climate technology and science-fiction-inspired technical storytelling.</p>
-    </div>
-  </div>
-</section>
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
 
-<section id="projects" class="section alt">
-  <div class="section-label">02 / PROJECTS</div>
-  <div class="cards">
-    <article class="card featured">
-      <span class="tag">AI / EDGE</span>
-      <h3>The Observer</h3>
-      <p>An AWS DeepLens and far-field integration concept using visual and audio event streams. Four daemon concepts — Compassion, Humility, Gratitude and Optimism — feed a hint-generation layer.</p>
-      <div class="code-pill">Python + AWS + event streams</div>
-    </article>
-    <article class="card">
-      <span class="tag">CLIMATE / IoT</span>
-      <h3>Nathan's Greenhouse</h3>
-      <p>A speculative IoT system exploring biomass measurements, environmental sensors, code-at-the-edge and possible carbon-accounting models.</p>
-      <div class="code-pill">IoT + sensors + edge code</div>
-    </article>
-    <article class="card">
-      <span class="tag">BIO / COMPUTING</span>
-      <h3>Machine Genomes</h3>
-      <p>A science-fiction exploration of random DNA, machine transcription and the boundary between biological and computational information.</p>
-      <div class="code-pill">Bioinformatics + imagination</div>
-    </article>
+      toggle.addEventListener("click", () => {
+        const open = menu.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    });
+  </script>
+ </body>
+</html>    </article>
   </div>
 </section>
 
