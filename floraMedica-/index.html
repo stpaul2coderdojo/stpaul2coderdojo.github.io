@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d3b2a" />
+  <meta name="description" content="FloraMedica Pro — offline-first botanical identification, medicinal plant knowledge, herbarium OCR, and biodiversity field diagnostics." />
+  <title>FloraMedica Pro | Botanical Intelligence for the Field</title>
+  <style>
+    :root{
+      --ink:#123326;--forest:#0d3b2a;--forest2:#16543b;--leaf:#70a96b;--lime:#cde7a3;
+      --paper:#f6f3e8;--cream:#fffdf6;--gold:#d7b66d;--muted:#5f7068;--danger:#9b2f2f;
+      --shadow:0 20px 60px rgba(17,51,38,.16);--radius:24px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92vw);margin:auto}
+    .hero{min-height:92vh;position:relative;display:grid;align-items:center;color:white;background:
+      radial-gradient(circle at 18% 18%,rgba(205,231,163,.18),transparent 28%),
+      radial-gradient(circle at 80% 15%,rgba(215,182,109,.17),transparent 22%),
+      linear-gradient(135deg,#0a2f22,#0d3b2a 55%,#174b38);overflow:hidden}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50% 8% 50% 8%;background:linear-gradient(135deg,rgba(205,231,163,.18),rgba(112,169,107,.03));transform:rotate(-35deg)}
+    .hero:before{width:360px;height:170px;right:-80px;top:80px}.hero:after{width:300px;height:140px;left:-90px;bottom:70px;transform:rotate(25deg)}
+    nav{position:absolute;top:0;left:0;right:0;padding:26px 0;z-index:5}.navrow{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:800;letter-spacing:.3px;font-size:1.05rem}.brand span{color:var(--lime)}
+    .navlinks{display:flex;gap:22px;align-items:center;font-size:.94rem}.navlinks a{opacity:.86}.navlinks a:hover{opacity:1}.pill{border:1px solid rgba(255,255,255,.22);padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(10px)}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center;padding:120px 0 72px;position:relative;z-index:2}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;font-weight:800;color:var(--lime);margin-bottom:18px}.dot{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 6px rgba(205,231,163,.1)}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3.3rem,7vw,6.6rem);line-height:.92;letter-spacing:-.055em;margin:0 0 24px;max-width:760px}.accent{color:var(--lime);font-style:italic;font-weight:500}
+    .lede{font-size:1.14rem;max-width:680px;color:rgba(255,255,255,.78);margin-bottom:32px}.cta-row{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 22px;font-weight:800;transition:.2s ease}.btn-primary{background:var(--lime);color:#153427;box-shadow:0 12px 30px rgba(205,231,163,.18)}.btn-primary:hover{transform:translateY(-2px)}.btn-ghost{border:1px solid rgba(255,255,255,.28);color:white;background:rgba(255,255,255,.06)}
+    .phone{width:min(360px,82vw);margin:auto;background:#081f17;border:1px solid rgba(255,255,255,.15);border-radius:42px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.38);transform:rotate(3deg);position:relative}.phone:after{content:"";position:absolute;inset:-20px -26px -32px;background:radial-gradient(circle,rgba(205,231,163,.15),transparent 70%);z-index:-1}
+    .screen{border-radius:32px;min-height:560px;padding:22px;background:linear-gradient(180deg,#eaf0dd,#f9f6ec);color:var(--ink);overflow:hidden}.status{display:flex;justify-content:space-between;font-size:.72rem;font-weight:700;opacity:.65}.scan-title{font-family:Georgia,serif;font-size:1.75rem;margin:24px 0 8px}.camera{height:230px;border-radius:24px;background:linear-gradient(145deg,#214936,#66905e);position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+    .camera svg{position:absolute;inset:0;width:100%;height:100%}.scanbox{position:absolute;inset:24px;border:2px solid rgba(255,255,255,.85);border-radius:18px}.scanbox:before{content:"";position:absolute;background:var(--lime);height:2px;left:20px;right:20px;top:50%;box-shadow:0 0 14px var(--lime)}.tag{display:inline-block;margin-top:15px;background:#dceec2;padding:6px 10px;border-radius:999px;font-size:.72rem;font-weight:800}.plant-name{font-family:Georgia,serif;font-size:1.4rem;margin:8px 0 0}.latin{font-style:italic;color:#58705f;font-size:.84rem}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.mini{padding:11px;border-radius:14px;background:rgba(255,255,255,.72);font-size:.72rem}.mini strong{display:block;font-size:.8rem}
+    section{padding:92px 0}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:900;color:var(--forest2)}.section-title{font-family:Georgia,serif;font-size:clamp(2.3rem,4vw,4.2rem);line-height:1.03;letter-spacing:-.035em;margin:10px 0 18px}.section-copy{color:var(--muted);max-width:720px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}.card{background:var(--cream);border:1px solid #e6e0d1;border-radius:var(--radius);padding:26px;box-shadow:0 10px 30px rgba(36,62,49,.05)}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#e7f0d3;font-size:1.35rem;margin-bottom:20px}.card h3{font-family:Georgia,serif;font-size:1.45rem;margin:0 0 10px}.card p{color:var(--muted);font-size:.93rem;margin:0}
+    .systems{background:#e9eadb}.systems-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}.botanical{aspect-ratio:1;border-radius:48% 48% 40% 40%;background:radial-gradient(circle at 50% 38%,#d8e6bd 0 35%,#a8c78f 36% 57%,#325d43 58% 100%);position:relative;overflow:hidden;box-shadow:var(--shadow)}.botanical svg{position:absolute;width:100%;height:100%;inset:0}.systems-list{display:grid;gap:14px;margin-top:26px}.system{display:flex;gap:16px;padding:18px 0;border-top:1px solid rgba(18,51,38,.15)}.num{font-family:Georgia,serif;font-size:1.1rem;color:var(--forest2)}.system strong{display:block;margin-bottom:3px}.system span{color:var(--muted);font-size:.92rem}
+    .safety{background:var(--cream)}.safety-box{display:grid;grid-template-columns:1fr .9fr;gap:32px;align-items:center;background:#173e30;color:white;padding:38px;border-radius:32px;box-shadow:var(--shadow)}.safety-box .section-title{margin-top:4px}.warning{border-radius:24px;background:#fff4e9;color:#4e2f24;padding:22px}.warning .flag{display:inline-flex;align-items:center;gap:8px;font-weight:900;color:var(--danger);font-size:.78rem;text-transform:uppercase;letter-spacing:.11em}.warning h3{font-family:Georgia,serif;font-size:1.6rem;margin:10px 0 6px}.warning p{font-size:.9rem;color:#76564b}.warning small{display:block;margin-top:12px;color:#8b6a60}
+    .launch{padding:0 0 92px}.launch-box{text-align:center;background:linear-gradient(135deg,#dbe8bf,#f4e6b7);padding:68px 28px;border-radius:32px}.launch-box p{max-width:680px;margin:0 auto 28px;color:#466052}.launch-box .btn-primary{background:var(--forest);color:white}
+    footer{background:#0b2b20;color:rgba(255,255,255,.72);padding:32px 0}.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;font-size:.88rem}.foot a{color:white;opacity:.9}
+    @media(max-width:850px){.hero-grid,.systems-grid,.safety-box{grid-template-columns:1fr}.hero-grid{gap:46px}.phone{transform:none}.feature-grid{grid-template-columns:1fr 1fr}.navlinks a:not(.pill){display:none}.botanical{max-width:520px;margin:auto}}
+    @media(max-width:560px){section{padding:70px 0}.feature-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-grid{padding-top:116px}.screen{min-height:500px}.camera{height:200px}.launch{padding-bottom:70px}.safety-box{padding:24px}.foot{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <div class="wrap navrow">
+        <a class="brand" href="#">Flora<span>Medica</span> Pro</a>
+        <div class="navlinks">
+          <a href="#features">Features</a><a href="#traditions">Knowledge</a><a href="#safety">Safety</a>
+          <a class="pill" href="https://github.com/stpaul2coderdojo/floraMedica-" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </nav>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Botanical intelligence for the field</div>
+        <h1>Know the plant.<br><span class="accent">Know its story.</span></h1>
+        <p class="lede">FloraMedica Pro brings botanical identification, classical medicinal knowledge, herbarium tools, and biodiversity field diagnostics into one offline-first field companion.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://ais-pre-3bqcolu6gzhfjosm4f6z6p-219346993343.asia-southeast1.run.app" target="_blank" rel="noopener">Launch live app <span>↗</span></a>
+          <a class="btn btn-ghost" href="https://doi.org/10.5281/zenodo.22202177" target="_blank" rel="noopener">Read the paper</a>
+        </div>
+      </div>
+      <div class="phone" aria-label="Illustration of the FloraMedica plant scanner">
+        <div class="screen">
+          <div class="status"><span>FloraMedica</span><span>FIELD MODE</span></div>
+          <div class="scan-title">Identify a plant</div>
+          <div style="font-size:.78rem;color:#64756b;margin-bottom:12px">Leaf · flower · fruit · bark</div>
+          <div class="camera">
+            <svg viewBox="0 0 360 230" aria-hidden="true">
+              <path d="M205 230c-4-72 12-132 48-179" stroke="#dcecc4" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <ellipse cx="236" cy="82" rx="61" ry="25" fill="#a6cc7f" transform="rotate(-34 236 82)"/>
+              <ellipse cx="198" cy="134" rx="54" ry="21" fill="#84b36c" transform="rotate(25 198 134)"/>
+              <ellipse cx="275" cy="137" rx="45" ry="19" fill="#bedb92" transform="rotate(-20 275 137)"/>
+              <circle cx="96" cy="75" r="48" fill="rgba(255,255,255,.08)"/><circle cx="72" cy="177" r="66" fill="rgba(255,255,255,.05)"/>
+            </svg>
+            <div class="scanbox"></div>
+          </div>
+          <span class="tag">High-confidence match</span>
+          <div class="plant-name">Field botanical dossier</div>
+          <div class="latin">Vision + traditional pharmacopoeial context</div>
+          <div class="mini-grid"><div class="mini"><strong>Multi-organ</strong>Vision input</div><div class="mini"><strong>Lookalikes</strong>Safety checks</div><div class="mini"><strong>Offline-first</strong>Field workflow</div><div class="mini"><strong>Biodiversity</strong>Survey metrics</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features">
+      <div class="wrap">
+        <div class="kicker">Field toolkit</div>
+        <h2 class="section-title">From a single leaf to an ecological survey.</h2>
+        <p class="section-copy">Designed for botanists, foragers, field researchers, students, and traditional-medicine documentation workflows—especially where connectivity is limited.</p>
+        <div class="feature-grid">
+          <article class="card"><div class="icon">🌿</div><h3>Multi-organ identification</h3><p>Capture leaves, flowers, fruit, or bark and use Pl@ntNet-backed plant recognition for candidate identification.</p></article>
+          <article class="card"><div class="icon">📜</div><h3>Materia medica dossiers</h3><p>Explore Siddha, Sowa-Rigpa, and Ayurvedic terminology and traditional botanical context in one interface.</p></article>
+          <article class="card"><div class="icon">⚠️</div><h3>Lookalike warnings</h3><p>Surface dangerous confusions and toxic lookalikes prominently instead of treating identification as a cosmetic label.</p></article>
+          <article class="card"><div class="icon">🔎</div><h3>Herbarium OCR</h3><p>Extract collection labels, accession details, and habitat notes from herbarium sheets for faster digitization.</p></article>
+          <article class="card"><div class="icon">📐</div><h3>Morphometrics</h3><p>Inspect botanical form with interactive visual tools for leaf and flower morphology.</p></article>
+          <article class="card"><div class="icon">📊</div><h3>Biodiversity diagnostics</h3><p>Support quadrats, transects, population statistics, diversity indices, and field-ready CSV/JSON export.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="systems" id="traditions">
+      <div class="wrap systems-grid">
+        <div class="botanical" aria-hidden="true">
+          <svg viewBox="0 0 500 500">
+            <path d="M249 470C228 367 237 260 275 108" stroke="#173e30" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <ellipse cx="318" cy="132" rx="118" ry="47" fill="#eff4c9" transform="rotate(-30 318 132)"/>
+            <ellipse cx="218" cy="246" rx="108" ry="43" fill="#dbe9ad" transform="rotate(27 218 246)"/>
+            <ellipse cx="319" cy="313" rx="92" ry="39" fill="#c5dd92" transform="rotate(-21 319 313)"/>
+            <path d="M156 420c58-42 114-53 172-33" stroke="#6d9166" stroke-width="7" fill="none" opacity=".65"/>
+          </svg>
+        </div>
+        <div>
+          <div class="kicker">Three knowledge traditions</div>
+          <h2 class="section-title">Botany meets living pharmacopoeial traditions.</h2>
+          <p class="section-copy">FloraMedica organizes plant context across classical South Asian and Himalayan medical vocabularies, while keeping scientific identification and safety at the center.</p>
+          <div class="systems-list">
+            <div class="system"><div class="num">01</div><div><strong>Siddha / Gunapadam</strong><span>Gunam, Veeryam, Vibagham, Pirivu and vernacular plant names.</span></div></div>
+            <div class="system"><div class="num">02</div><div><strong>Tibetan Sowa-Rigpa</strong><span>Ro, Zhu-rjes, Nus-pa and Tibetan materia medica terminology.</span></div></div>
+            <div class="system"><div class="num">03</div><div><strong>Ayurveda</strong><span>Rasa, Guna, Virya, Vipaka, Prabhava and classical botanical context.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety" id="safety">
+      <div class="wrap safety-box">
+        <div>
+          <div class="kicker" style="color:#cde7a3">Safety-first identification</div>
+          <h2 class="section-title">A plant match is a clue, not permission to consume.</h2>
+          <p style="color:rgba(255,255,255,.72)">FloraMedica is built to make dangerous botanical ambiguity visible. Always confirm identification with qualified local expertise and authoritative references before ingesting or using a wild plant medicinally.</p>
+        </div>
+        <div class="warning">
+          <div class="flag">▲ Lookalike interlock</div>
+          <h3>Similar appearance ≠ same plant</h3>
+          <p>Field identification can be affected by lighting, season, plant age, missing organs, image quality, and regional variation.</p>
+          <small>Use multiple plant organs whenever possible and treat toxic-lookalike alerts as a stop signal.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="launch">
+      <div class="wrap launch-box">
+        <div class="kicker">Explore FloraMedica Pro</div>
+        <h2 class="section-title">Take botanical intelligence into the field.</h2>
+        <p>Open the production app in your browser, or inspect the open-source project and research record.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-primary" href="https://ais-pre-3bqcolu6gzhfjosm4f6z6p-219346993343.asia-southeast1.run.app" target="_blank" rel="noopener">Launch live app ↗</a>
+          <a class="btn" style="border:1px solid rgba(18,51,38,.2)" href="https://github.com/stpaul2coderdojo/floraMedica-" target="_blank" rel="noopener">View source</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div><strong style="color:white">FloraMedica Pro</strong> · Open-access botanical field intelligence</div>
+      <div><a href="https://doi.org/10.5281/zenodo.22202177" target="_blank" rel="noopener">DOI 10.5281/zenodo.22202177</a> · <a href="https://github.com/stpaul2coderdojo/floraMedica-" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+  </footer>
+</body>
+</html>
